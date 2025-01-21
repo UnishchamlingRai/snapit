@@ -9,12 +9,11 @@ import { getAllProducts } from "./services/ProductService";
 interface Product {
   category: { name: string };
 }
+interface PageProps {
+  searchParams: Promise<{ category: string }>;
+}
 
-const Page = async ({
-  searchParams,
-}: {
-  searchParams: { category: string };
-}) => {
+const Page = async ({ searchParams }: PageProps) => {
   const params = await searchParams;
   const filterUrl = params.category;
 
